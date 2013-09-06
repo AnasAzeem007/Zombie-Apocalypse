@@ -35,6 +35,7 @@
 				element1.name = "chkbox[]";
 				element1.checked = todoDictionary["check"];
 				element1.setAttribute("onClick", "checkboxClicked()");
+				element1.className ="checkbox";
 				cell1.append(element1);
 
 				//create a textbox
@@ -46,6 +47,7 @@
 				element2.id = "text" + rowID;
 				element2.value = todoDictionary["text"];
 				element2.setAttribute("onchange", "saveToDoList()");
+				element1.className ="textbox";
 				cell2.appendChild(element2);
 
 				// create the view button
@@ -54,7 +56,8 @@
 				element3.type = "button";
 				element3.id = rowID;
 				element3.value = "View";
-				element3.setAttribute("onclick", "viewSelectedRow(document.getElementById('text' + this.id))");
+				element3.setAttribute("onclick", "viewSelectedRow(documents.getElementById('text' + this.id))");
+				element1.className ="viewButton";
 				cell3.appendChild(element3);
 
 				// create the delete button
@@ -63,6 +66,7 @@
 				element4.type = "button";
 				element4.value = "Delete";
 				element4.setAttribute("onclick", "deleteSelectedRow(this)");
+				element1.className ="deleteButton";
 				cell4.appendChild(element4);
 
 				// update the UI and save the to-do list
@@ -222,8 +226,8 @@
 	</head>
 
 	<body>
-		<input type="button" value="Add To-DO" id="add" onclick="createNewToDo()">
-		<input type="button" value="Remove Completed" id="remove" onclick="removeCompletedTasks()">
+		<button type="button" class="addToDo" onclick="createNewToDo()"><img src="img/button_addtodo.png" /></button>
+		<button type="button" class="removeTasks" onclick="removeCompletedTasks()"><img src="img/button_removetasks.png" /></button>
 		<br>
 		<br>
 		<table border="1" cellspacing="5" cellpadding="5" width="100%" id="dataTable">
